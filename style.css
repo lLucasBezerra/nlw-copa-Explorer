@@ -24,6 +24,12 @@ body{
 }
 header{
     margin-bottom: 63px;
+    text-align: center;
+}
+#cards{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 .card{
     padding: 32px 23px;
@@ -33,9 +39,9 @@ header{
     border-radius: 6px;
 
 }
-.card + .card{
+/* .card + .card{
     margin-top: 32px;
-}
+} */
 .card h2{
     display: flex;
     gap: 16px;
