@@ -12,10 +12,12 @@ body{
     background-color: #121214;
     background-image: url("./assets/bg.svg");
     background-position-x: center;
-    background-position-y: 55%;
+
+    background-repeat: no-repeat;
+    
 }
 #app{
-    /* encaixar o conteudo automaticamente INCRIVEL */
+    /* encaixar o conteudo automaticamente. INCRIVEL */
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -38,10 +40,9 @@ header{
     border-bottom: 2px solid #f7dd43;
     border-radius: 6px;
 
+    animation:fromBottom .7s .2s backwards;
+
 }
-/* .card + .card{
-    margin-top: 32px;
-} */
 .card h2{
     display: flex;
     gap: 16px;
@@ -85,4 +86,62 @@ header{
     font-size: 36px;
     line-height: 125%;
     color: white;
+}
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+@media (min-width: 500px){
+    #cards{
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+    }
+    .card:nth-child(odd){
+        animation:fromLeft 1s .4s backwards;
+    }
+    .card:nth-child(even){
+        animation:fromRight 1s .4s backwards;
+    }
+
+}
+@media (min-width: 1000px){
+    #cards{
+        width: 70%;
+    }
+}
+
+@keyframes fromBottom {
+    
+    0%{
+        opacity: 0;
+        transform: translateY(400px)  ;
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes fromLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-400px)  ;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fromRight{
+    0%{
+        opacity: 0;
+        transform: translateX(400px)  ;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
